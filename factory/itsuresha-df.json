@@ -1,0 +1,9 @@
+{
+	"name": "itsuresha-df",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fbc29762-b095-4b73-b69c-2597cc4736ce",
+		"tenantId": "8efa892f-8bd8-4095-af8a-4fdd504dd3a3"
+	}
+}
