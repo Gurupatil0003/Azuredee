@@ -21,6 +21,10 @@
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "DelimitedText4",
+						"type": "DatasetReference"
+					},
 					"name": "sink1"
 				}
 			],
@@ -55,8 +59,17 @@
 				"     broadcast: 'auto')~> join4",
 				"join4 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     input(",
+				"          Column_1 as string,",
+				"          Column_2 as string,",
+				"          Column_3 as string,",
+				"          Column_4 as string",
+				"     ),",
+				"     partitionFileNames:['new.csv'],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     quoteAll: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
