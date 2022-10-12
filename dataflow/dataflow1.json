@@ -19,7 +19,11 @@
 					"name": "source2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "join4"
@@ -48,7 +52,11 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join4"
+				"     broadcast: 'auto')~> join4",
+				"join4 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
